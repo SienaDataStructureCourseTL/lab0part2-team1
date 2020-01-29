@@ -4,9 +4,10 @@
  * 
  * DO NOT ALTER THIS CLASS UNTIL INSTRUCTED TO DO SO.  
  *
- * @author Prof. White, modified by (your names)
+ * @author Prof. White, modified by (Tasila Apronia Kanswata and Ryan Sgroi)
  * @version Fall 2019
  */
+import java.util.Random;
 public class UnitTestArrayPractice
 {
     public static void main(String args[])
@@ -59,6 +60,58 @@ public class UnitTestArrayPractice
         System.out.print("Actual:    Lengths:  ");
         printArray(ArrayPractice.stringLengths(sArr));
         System.out.println("\n***End test ArrayPractice.stringLengths(String[])***\n");
+
+        //////////ADDITIONAL TEST////////////////////////////
+        Random rand = new Random();
+
+        //Double Array
+        int double1 = rand.nextInt(4) + 6; 
+        Double[] doubleArray = new Double[double1];
+
+        for (int i=0; i < doubleArray.length; i++){
+            double doubleElement = rand.nextDouble(); 
+            if (doubleElement > -2.0 && doubleElement < 2.0)
+            {
+                doubleArray[i] = doubleElement;
+            }
+        }
+
+        //Integer Array
+        int integer1 = rand.nextInt(4) +6; 
+        Integer[] integerArray = new Integer[integer1];
+
+        for (int i=0; i < integerArray.length; i++){
+            int integerElement = rand.nextInt(20) - 10; 
+            
+            integerArray[i] = integerElement;
+            
+        }
+
+        //Test 0
+        System.out.println("***Testing ArrayPractice.sum(Double[])***\n");
+        printArray(doubleArray);
+        System.out.println("Actual:    Sum of elements:  " + ArrayPractice.sum(doubleArray));
+        System.out.println("\n***End test ArrayPractice.sum(Double[])***\n");
+
+        //Test 1
+        System.out.println("***Testing ArrayPractice.sum(Integer[])***\n");
+        printArray(integerArray);
+        System.out.println("Actual:    Sum of elements:  " + ArrayPractice.sum(integerArray));
+        System.out.println("\n***End test ArrayPractice.sum(Integer[])***\n");
+
+        //Test 2
+        System.out.println("***Testing ArrayPractice.largest(Integer[])***\n");
+        printArray(integerArray);
+        System.out.println("Actual:    Largest:  " + ArrayPractice.largest(integerArray));
+        System.out.println("\n***End test ArrayPractice.largest(Integer[])***\n");
+
+        //Test 3
+        System.out.println("***Testing ArrayPractice.countLarger(Integer[], int)***\n");
+        System.out.print("values larger than first elemnt in array in ");
+        printArray(integerArray);
+        System.out.println("Actual:    Larger:  " + ArrayPractice.countLarger(integerArray, integerArray[0]));
+        System.out.println("\n***End test ArrayPractice.countLarger(Integer[], int)***\n");
+
     }
 
     /**
