@@ -15,7 +15,7 @@
  * Debug (DO NOT WRITE YOUR OWN) the methods so they work as required.  
  * Bugs may include logic errors, syntax errors, and/or runtime errors.
  *
- * @author Prof. White, modified by (your names)
+ * @author Prof. White, modified by (Tasila Apronia Kanswata and Ryan Sgroi)
  * @version Lab 0, Fall 2019
  */
 public class ArrayManager
@@ -40,6 +40,12 @@ public class ArrayManager
     public ArrayManager(int numElements)
     {
         nextAvailable = 0;
+        iArr = new int[numElements];
+        for (int i=0; i< iArr.length; i++)
+        {
+            iArr[i] = -999;
+        }
+
     }
 
     /**
@@ -52,8 +58,10 @@ public class ArrayManager
      */
     public void addElement(int value)
     {
-        iArr[nextAvailable] = value;
-        nextAvailable++;
+        
+            iArr[nextAvailable] = value;
+            nextAvailable++;
+        
     }
 
     /**
@@ -74,13 +82,15 @@ public class ArrayManager
         // Hint: there are two errors in the for loop header
         if(nextAvailable < iArr.length && location <= nextAvailable)
         {
-            for(int i = iArr.length; i > location; i++)
+            for(int i = nextAvailable; i >location ; i--)
             {
                 iArr[i] = iArr[i - 1];
+               
             }
             iArr[location] = value;
             nextAvailable++;
         }
+        
     }
 
     /**
@@ -100,13 +110,14 @@ public class ArrayManager
     {
         // Hint: there are 2 errors in this method. One of the errors is in the for loop body.
         int value;
+        value = iArr[location];
 
         if(location < nextAvailable)
         {
-            value = iArr[location];
+            
             for(int i = location; i < nextAvailable - 1; i++)
             {
-                iArr[i] = iArr[i - 1];
+                iArr[i] = iArr[i + 1];
             }
             nextAvailable--;
             iArr[nextAvailable] = -999;
