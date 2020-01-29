@@ -4,8 +4,8 @@
  * Complete each of the following methods according to the method comments.
  * DO NOT CHANGE THE METHOD HEADERS.
  *
- * @author (your names)
- * @version (a version number or a date)
+ * @author (Tasila Apronia Kanswata and Ryan Sgroi)
+ * @version (1/28/2020)
  */
 public class ArrayPractice
 {
@@ -17,7 +17,11 @@ public class ArrayPractice
      */
     public static double sum(Double arr[])
     {
-        return -1.0;
+        double sum = 0.0;
+        for(int i=0; i< arr.length; i++){
+            sum = sum + arr[i]; 
+        }
+        return sum;
     }
 
     /**
@@ -28,9 +32,13 @@ public class ArrayPractice
      */
     public static int sum(Integer arr[])
     {
-        return -1;
+        int sum = 0;
+        for(int i=0; i< arr.length; i++){
+            sum = sum + arr[i]; 
+        }
+        return sum;
     }
-    
+
     /**
      * Return the largest value in the array.
      * 
@@ -39,9 +47,13 @@ public class ArrayPractice
      */
     public static int largest(Integer arr[])
     {
-        return -1;
+        int largest = arr[0];
+        for (int i=1; i< arr.length; i++){
+            if(arr[i] > largest){largest = arr[i];}
+        }
+        return largest;
     }
-    
+
     /**
      * Return the number of elements in the input array that are
      * strictly larger than the input value.
@@ -53,9 +65,13 @@ public class ArrayPractice
      */
     public static int countLarger(Integer arr[], int value)
     {
-        return -1;
+        int count = 0;
+        for(int i =0; i< arr.length; i++){
+            if (arr[i] > value){count++;}
+        }
+        return count;
     }
-    
+
     /**
      * Return the number of elements in the array that have
      * a value of TRUE.
@@ -66,9 +82,14 @@ public class ArrayPractice
      */
     public static int countTrue(Boolean arr[])
     {
-        return -1;
+        int count = 0;
+        for(int i =0; i< arr.length; i++){
+            if (arr[i].equals(true)){count++;}
+        }
+        return count;
+
     }
-    
+
     /**
      * Return an array of values that represent the lengths of
      * the string values in the input array.  For example, if
@@ -81,7 +102,14 @@ public class ArrayPractice
      */
     public static Integer[] stringLengths(String arr[])
     {
-        return null;
+        Integer[] newArray = new Integer[arr.length];
+
+        for ( int i=0; i< arr.length; i++){
+            int length1 = arr[i].length();
+            newArray[i] = length1;
+
+        }
+        return newArray; 
     }
-    
+
 }
